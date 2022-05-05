@@ -1,12 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="px-4 py-5 my-5" style="background-color:black">
+    <img style="color:white; margin-left:10px" src='/images/jacobo.png' width="72" height="77">
+    <h5 class="display-5 fw-bold" style="color:white">WIKIPA'TÓ</h5>
+  </div>
+
 <form action="{% url 'polls:vote' question.id %}" method="post">
     {% csrf_token %}
     <fieldset>
-        <legend><h1>{{ question.question_text }}</h1></legend>
+        <legend><h1 style="text-align:center">{{ question.question_text }}</h1></legend>
         {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
         {% for choice in question.choice_set.all %}
+        
             <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
             <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+       
         {% endfor %}
     </fieldset>
-    <input type="submit" value="Vote">
+    <div style="
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+  ">    
+    <input class="button-55" type="submit" value="Valorar pregunta">
+</div>
 </form>
+
+
+{% endblock %}
