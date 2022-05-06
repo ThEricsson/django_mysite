@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:question_id>/vote/', views.vote, name='vote'),
     path('', views.post_list, name='posts'),
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
+    path('toteslesrespostes', views.totes, name='totes'),
 ]

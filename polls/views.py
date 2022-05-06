@@ -47,3 +47,7 @@ def vote(request, question_id):
         selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
+def totes(request):
+    questions = Question.objects.filter(pub_date__lte=timezone.now()).order_by('pub_date')
+    return render(request, 'polls/totes.html', {'questions': questions})
+
