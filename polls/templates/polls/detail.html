@@ -12,21 +12,22 @@
     <fieldset>
         <legend><h1 style="text-align:center">{{ question.question_text }}</h1></legend>
         {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        <ul class="ratings">
         {% for choice in question.choice_set.all %}
-        
-            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-       
+            <input style="display:none;" type="radio" class="checkbox" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+            <label class="star checkmark" for="choice{{ forloop.counter }}"></label>
         {% endfor %}
+        </ul>
     </fieldset>
     <div style="
     margin: 1rem;
     padding: 1rem;
     text-align: center;
-  ">    
+  ">
     <input class="button-55" type="submit" value="Valorar pregunta">
 </div>
 </form>
+
 
 
 {% endblock %}

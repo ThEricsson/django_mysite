@@ -10,7 +10,110 @@
 
     <title>Wikipa-tó</title>
     
+    
     <style type="text/css">
+      /* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: white;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: white;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+      
+      .ratings {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        direction: rtl;
+        width: 100%;
+        text-align: center;
+      }
+      
+      
+      .star {
+      margin:50px;
+        position: relative;
+        line-height: 10px;
+        display: inline-block;
+        transition: color 0.2s ease;
+        color: #ebebeb;
+      }
+      
+      .star:before {
+        content: '\2605';
+        width: 60px;
+        height: 60px;
+        font-size: 60px;
+      }
+      
+      .star:hover,
+      .star.selected,
+      .star:hover ~ .star,
+      .star.selected ~ .star{
+        transition: color 0.8s ease;
+        color: black;
+      }
       .button-55 {
         align-self: center;
         background-color: #fff;
@@ -81,4 +184,16 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
+  <script>$(function (){
+    var star = '.star',
+        selected = '.selected';
+    
+    $(star).on('click', function(){
+      $(selected).each(function(){
+        $(this).removeClass('selected');
+      });
+      $(this).addClass('selected');
+    });
+   
+  });</script>
 </html>
