@@ -1,14 +1,24 @@
 {% extends 'base.html' %}
 
+
+
 {% block content %}
+<div class="px-4 py-5" style="background-color:black; margin-top:0">
+
+    <img style="color:white; margin-left:10px" src='/images/jacobo.png' width="72" height="77">
+    <h5 class="display-5 fw-bold" style="color:white">WIKIPA'TÓ</h5>
+  
+  </div> 
+  <div style="text-align:center">
     <h1 style="text-align: center">Valoració de totes les preguntes</h1>
     <hr style="width: 60em">
     <div class="posts">
         {% for question in questions %}
             <h3>Pregunta: {{ question.question_text }}</h3>
                 {% for choice in question.choice_set.all %}
-                <li>{{ choice.choice_text }} - {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+                <li>{{ choice.choice_text }}★ - {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
             {% endfor %}
         {% endfor %}
     </div>  
+</div>
 {% endblock %}

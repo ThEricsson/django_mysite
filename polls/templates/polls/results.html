@@ -1,9 +1,27 @@
-<h1>{{ question.question_text }}</h1>
+{% extends 'base.html' %}
 
-<ul>
+{% block content %}
+<div class="px-4 py-5" style="background-color:black; margin-top:0">
+
+    <img style="color:white; margin-left:10px" src='/images/jacobo.png' width="72" height="77">
+    <h5 class="display-5 fw-bold" style="color:white">WIKIPA'TÓ</h5>
+  
+  </div> 
+  
+<div style="text-align:center">
+<h1 style="margin:20px">{{ question.question_text }}</h1>
+
+
+<ul class="tilesWrap">
 {% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+    <li>
+        <h2>{{ choice.choice_text }}★</h2>
+     <p>{{ choice.votes }} vote{{ choice.votes|pluralize }}</p>
+    </li>
 {% endfor %}
 </ul>
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+<a class="button-55" href="{% url 'polls:detail' question.id %}">Vote again?</a>
+
+</div>
+{% endblock %}

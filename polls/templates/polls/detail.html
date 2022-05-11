@@ -2,12 +2,15 @@
 
 {% block content %}
 
-<div class="px-4 py-5 my-5" style="background-color:black">
-    <img style="color:white; margin-left:10px" src='/images/jacobo.png' width="72" height="77">
-    <h5 class="display-5 fw-bold" style="color:white">WIKIPA'TÓ</h5>
-  </div>
+<div class="px-4 py-5" style="background-color:black; margin-top:0">
 
-<form action="{% url 'polls:vote' question.id %}" method="post">
+  <img style="color:white; margin-left:10px" src='/images/jacobo.png' width="72" height="77">
+  <h5 class="display-5 fw-bold" style="color:white">WIKIPA'TÓ</h5>
+
+</div> 
+
+
+<form style="margin:50px" action="{% url 'polls:vote' question.id %}" method="post">
     {% csrf_token %}
     <fieldset>
         <legend><h1 style="text-align:center">{{ question.question_text }}</h1></legend>

@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="post">
+<div class="px-4 py-5" style="background-color:black; margin-top:0">
+
+    <img style="color:white; margin-left:10px" src='/images/jacobo.png' width="72" height="77">
+    <h5 class="display-5 fw-bold" style="color:white">WIKIPA'TÓ</h5>
+  
+  </div> 
+    <div class="post" style="text-align:center">
         {% if post.published_date %}
             <div class="date">
             {{ post.published_date }}
